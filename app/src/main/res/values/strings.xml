@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RecyclerViewAdapter</string>
+    <string name="title">我是标题</string>
+    <string name="logout">退出</string>
+</resources>

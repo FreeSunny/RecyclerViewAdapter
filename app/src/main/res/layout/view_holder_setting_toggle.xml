@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/size_60_dp">
+
+    <ToggleButton
+        android:id="@+id/toggle_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="18dp"/>
+
+    <TextView
+        android:id="@+id/display_item_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="18dp"
+        android:layout_toLeftOf="@id/toggle_btn"
+        android:padding="@dimen/size_10_dp"
+        android:text="ddd"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_16sp"/>
+
+
+</RelativeLayout>

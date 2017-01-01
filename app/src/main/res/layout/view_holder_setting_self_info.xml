@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/size_20_dp">
+
+    <ImageView
+        android:id="@+id/self_info_head_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/avater"/>
+
+    <TextView
+        android:id="@+id/self_name_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/self_info_head_view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/size_20_dp"
+        android:drawablePadding="3dp"
+        android:drawableRight="@drawable/female_icon"
+        android:text="卖个萌"/>
+
+    <TextView
+        android:id="@+id/birthday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/self_name_gender"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/size_20_dp"
+        android:text="1990年10月11日"/>
+
+</RelativeLayout>
