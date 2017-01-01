@@ -1,10 +1,22 @@
 # RecyclerViewAdapter
 Encapsulates recycler view adapter
-<<<<<<< HEAD
+
 =======
 
 ##sample
- ![image](https://github.com/FreeSunny/RecyclerViewAdapter/raw/master/device-2017-01-02-002106.png)
+ ![image](https://github.com/FreeSunny/RecyclerViewAdapter/raw/master/sample1.png)
  
- ![image](https://github.com/FreeSunny/RecyclerViewAdapter/raw/master/device-2017-01-02-002106.png)
->>>>>>> 098a947869e6ebee385fa21e743d42bdf4836f29
+ ![image](https://github.com/FreeSunny/RecyclerViewAdapter/raw/master/sample2.png)
+
+##BaseAdapter
+>inherit RecyclerView.Adapter
+
+##onItemClickListener
+>handle onClick & onLongClick callback
+
+##BaseViewHolder
+> ViewHolder base class
+
+##BaseDelegate
+> Delegate Adapter onCreateViewHolder & getItemViewType
+
