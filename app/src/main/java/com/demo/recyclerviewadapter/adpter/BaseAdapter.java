@@ -3,6 +3,7 @@ package com.demo.recyclerviewadapter.adpter;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 
 import java.util.Collections;
 import java.util.List;
@@ -93,19 +94,36 @@ public class BaseAdapter<T> extends RecyclerView.Adapter<BaseViewHolder> {
     public void onBindViewHolder(BaseViewHolder holder, final int position) {
         holder.onBindViewHolder(dataList.get(position));
         if (listener != null && holder.enable()) {
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    listener.onClick(v, dataList.get(position));
-                }
-            });
-            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    return listener.onLongClick(v, dataList.get(position));
-                }
-            });
+            holder.itemView.setOnClickListener(onClickListenerMediator);
+            holder.itemView.setOnLongClickListener(onLongClickListenerMediator);
         }
+    }
+
+    View.OnClickListener onClickListenerMediator = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            int position = getViewHolderAdapterPosition(v);
+            listener.onClick(v, position, position >= 0 ? dataList.get(position) : null);
+        }
+    };
+
+    View.OnLongClickListener onLongClickListenerMediator = new View.OnLongClickListener() {
+        @Override
+        public boolean onLongClick(View v) {
+            int position = getViewHolderAdapterPosition(v);
+            return listener.onLongClick(v, position, position >= 0 ? dataList.get(position) : null);
+        }
+    };
+
+    private int getViewHolderAdapterPosition(View v) {
+        if (v == null) {
+            return -1;
+        }
+        ViewParent parent = v.getParent();
+        if (parent instanceof RecyclerView) {
+            ((RecyclerView) parent).getChildAdapterPosition(v);
+        }
+        return -1;
     }
 
     /**
