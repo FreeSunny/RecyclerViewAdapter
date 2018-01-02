@@ -9,6 +9,8 @@ import android.view.ViewGroup;
  */
 public abstract class BaseDelegate<T> {
 
+    public static final int LOAD_MORE_ = -10;
+
     /**
      * crate view holder by view type
      *
@@ -16,7 +18,11 @@ public abstract class BaseDelegate<T> {
      * @param viewType
      * @return
      */
-    public abstract BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType);
+    public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return onCreateViewHolder(parent, getItemView(parent, viewType), viewType);
+    }
+
+    public abstract BaseViewHolder onCreateViewHolder(ViewGroup parent, View view, int viewType);
 
     /**
      * get view type by data

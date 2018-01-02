@@ -21,7 +21,7 @@ public class BaseAdapter<T> extends RecyclerView.Adapter<BaseViewHolder> {
     /**
      * onClick onLongClick callback
      */
-    public onItemClickListener listener;
+    public OnItemClickListener listener;
 
     /**
      * constructor view holder delegate
@@ -45,7 +45,7 @@ public class BaseAdapter<T> extends RecyclerView.Adapter<BaseViewHolder> {
      * @param delegate
      * @param listener
      */
-    public BaseAdapter(List<T> dataList, BaseDelegate delegate, onItemClickListener listener) {
+    public BaseAdapter(List<T> dataList, BaseDelegate delegate, OnItemClickListener listener) {
         checkData(dataList);
         this.delegate = delegate;
         this.listener = listener;
@@ -68,7 +68,7 @@ public class BaseAdapter<T> extends RecyclerView.Adapter<BaseViewHolder> {
      *
      * @param listener
      */
-    public void setOnItemClickListener(onItemClickListener listener) {
+    public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
     }
 
@@ -81,7 +81,9 @@ public class BaseAdapter<T> extends RecyclerView.Adapter<BaseViewHolder> {
      */
     @Override
     public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return delegate.onCreateViewHolder(parent, viewType);
+        BaseViewHolder baseViewHolder = delegate.onCreateViewHolder(parent, viewType);
+        baseViewHolder.findViews();
+        return baseViewHolder;
     }
 
     /**

@@ -9,16 +9,20 @@ import android.view.ViewGroup;
  */
 public abstract class BaseViewHolder<T> extends RecyclerView.ViewHolder {
 
+//    public BaseViewHolder(ViewGroup parent) {
+    //        this(parent, 0);
+    //    }
+    //
+    //    public BaseViewHolder(ViewGroup parent, int layoutId) {
+    //        this(parent, LayoutInflater.from(parent.getContext()).inflate(layoutId, parent, false));
+    //    }
+
     /**
-     * TODO
-     * single view may be direct construction, eg: TextView view = new TextView(context);
-     *
      * @param parent current no use, may be future use
      * @param view
      */
     public BaseViewHolder(ViewGroup parent, View view) {
         super(view);
-        findViews();
     }
 
     /**

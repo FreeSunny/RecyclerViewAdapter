@@ -1,5 +1,6 @@
 package com.demo.recyclerviewadapter.holder;
 
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.demo.recyclerviewadapter.R;
@@ -26,20 +27,20 @@ public class SettingDelegate extends BaseDelegate<ItemData> {
     public static final int LOGOUT_TYPE = 5;
 
     @Override
-    public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public BaseViewHolder onCreateViewHolder(ViewGroup parent, View view, int viewType) {
         switch (viewType) {
             case SEPARATE_TYPE:
-                return new SeparateViewHolder(parent, getItemView(parent, viewType));
+                return new SeparateViewHolder(parent, view);
             case SELF_INFO:
-                return new SelfInfoViewHolder(parent, getItemView(parent, viewType));
+                return new SelfInfoViewHolder(parent, view);
             case ARROW_TYPE:
-                return new ArrowViewHolder(parent, getItemView(parent, viewType));
+                return new ArrowViewHolder(parent, view);
             case CHECK_TYPE:
-                return new CheckViewHolder(parent, getItemView(parent, viewType));
+                return new CheckViewHolder(parent, view);
             case TOGGLE_TYPE:
-                return new ToggleViewHolder(parent, getItemView(parent, viewType));
+                return new ToggleViewHolder(parent, view);
             case LOGOUT_TYPE:
-                return new LogoutViewHolder(parent, getItemView(parent, viewType));
+                return new LogoutViewHolder(parent, view);
         }
         return null;
     }

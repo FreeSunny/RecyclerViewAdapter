@@ -10,7 +10,7 @@ import android.view.View;
 
 import com.demo.recyclerviewadapter.R;
 import com.demo.recyclerviewadapter.adpter.BaseAdapter;
-import com.demo.recyclerviewadapter.adpter.onItemClickListener;
+import com.demo.recyclerviewadapter.adpter.OnItemClickListener;
 import com.demo.recyclerviewadapter.holder.SettingDelegate;
 import com.demo.recyclerviewadapter.model.ItemData;
 import com.demo.recyclerviewadapter.uitl.ToolbarHelper;
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         datas.add(new ItemData(0, SettingDelegate.SELF_INFO));
         datas.add(new ItemData(0, SettingDelegate.SEPARATE_TYPE));
         for (int i = 0; i < 3; ++i) {
-            datas.add(new ItemData(0, SettingDelegate.ARROW_TYPE, "我是箭头"));
+            datas.add(new ItemData(0, SettingDelegate.ARROW_TYPE, "加载更多"));
             datas.add(new ItemData(0, SettingDelegate.CHECK_TYPE, "选中我"));
             datas.add(new ItemData(0, SettingDelegate.TOGGLE_TYPE, "开启"));
             datas.add(new ItemData(0, SettingDelegate.SEPARATE_TYPE));
@@ -78,14 +78,14 @@ public class MainActivity extends AppCompatActivity {
         DividerItemDecoration decor = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         settingInfo.addItemDecoration(decor);
         settingInfo.setLayoutManager(new LinearLayoutManager(this));
-        settingInfo.setAdapter(new BaseAdapter(datas, new SettingDelegate(), new onItemClickListener() {
+        settingInfo.setAdapter(new BaseAdapter(datas, new SettingDelegate(), new OnItemClickListener<ItemData>() {
             @Override
-            public void onClick(View v, Object data) {
+            public void onClick(View v, int pos, ItemData data) {
                 ArrowActivity.start(MainActivity.this);
             }
 
             @Override
-            public boolean onLongClick(View v, Object data) {
+            public boolean onLongClick(View v, int pos, ItemData data) {
                 return false;
             }
         }));
